@@ -17,16 +17,16 @@ public class Pedido{
 		return this.descricao;
 	}
 	
-	public void addItem(String descricao, int quantidade, double valor){
+	public void addItem(double valor){
 		
-		this.cItem.add(new Item(descricao, quantidade, valor));
+		this.cItem.add(new Nota(valor));
 	}
 	
 	public double getValorTotalPedido(){
 		Iterator it = this.cItem.iterator();
 		double total = 0;
 		while(it.hasNext())
-			total += ((Item)it.next()).getValorTotalItem();
+			total += ((Nota)it.next()).getValorNota();
 		return total;
 	}
 	

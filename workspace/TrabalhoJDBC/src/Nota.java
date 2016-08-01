@@ -1,34 +1,33 @@
-public class Item{
+public class Nota{
 	
-	private String descricao;
-	private int quantidade;
-	private double valorUnitario;
+
+	private double valorNota;
 	
-	public Item(String newDescricao, int newQuantidade, double newValor){
-		this.descricao = newDescricao;
-		this.quantidade = newQuantidade;
-		this.valorUnitario = newValor;
+	public Nota(double newValor){
+
+		this.valorNota = newValor;
 	}
-	public String getDescricao(){
-		return this.descricao;
-	}
+
+
 	
-	public double getValorTotalItem(){
-		return this.quantidade * this.valorUnitario;
-	}
-	
-	public String toString(){
-		return "Descricao: " + this.descricao + " - " + "Qtd:" +
-		this.quantidade + " - " + "Valor: " + this.valorUnitario + "\n";
-	}
+//	public String toString(){
+//		return "Descricao: " + this.descricao + " - " + "Qtd:" +
+//		this.quantidade + " - " + "Valor: " + this.valorNota + "\n";
+//	}
 
 	
 	
-	public int getQuantidade(){
-		return this.quantidade;
+
+
+
+
+	public double getValorNota() {
+		return valorNota;
 	}
 
-	public double getValorUnitario(){
-		return this.valorUnitario;
+
+
+	public void setValorNota(double valorNota) {
+		this.valorNota = valorNota;
 	}	
 }
