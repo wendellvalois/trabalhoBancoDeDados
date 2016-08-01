@@ -21,6 +21,7 @@ public class PedidoBD{
       Stmt.setInt(2,pedido_id); //pedido_id == aluno
       Stmt.executeUpdate();
       Stmt.close();
+      conexao.getConexao().commit();
     
 	}
 /**
@@ -43,6 +44,12 @@ public class PedidoBD{
 	
 	public void RemoverAlunoBD(Integer aluno_matricula)throws Exception{
 	  PreparedStatement Stmt;
+	  
+      Stmt = conexao.getConexao().prepareStatement(
+      "DELETE FROM NOTA WHERE  ALU_MATRICULA=?");
+      Stmt.setString(1,Integer.toString(aluno_matricula.intValue())); //NOTA: converte de int pra string
+      Stmt.executeUpdate();
+	  
       Stmt = conexao.getConexao().prepareStatement(
       "DELETE FROM ALUNO WHERE  ALU_MATRICULA=?");
       Stmt.setString(1,Integer.toString(aluno_matricula.intValue())); //NOTA: converte de int pra string
@@ -69,7 +76,7 @@ public void ConsultarMediaAlunoBD(Integer aluno_matricula)throws Exception{
  //     if (!(rs.next())) return null;
       if (!(rs.next())) return;
       
-      System.out.println("A media do aluno:" + rs.getDouble("AVG(NOT_NOTA)")); //imprime a média
+      System.out.println("A media do aluno:" + rs.getDouble("AVG(NOT_NOTA)")); //imprime a mÃ©dia
       
       
       
@@ -109,7 +116,7 @@ public void ConsultarMediaGeralBD()throws Exception{
 //     if (!(rs.next())) return null;
     if (!(rs.next())) return;
     
-    System.out.println( rs.getDouble("AVG(NOT_NOTA)")); //imprime a média
+    System.out.println( rs.getDouble("AVG(NOT_NOTA)")); //imprime a mÃ©dia
     
     
     
